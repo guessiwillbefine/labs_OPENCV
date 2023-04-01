@@ -1,6 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -37,7 +38,13 @@ public class ContoursDemo {
             Imgproc.drawContours(dst, contours, i, generateColor(), 2);
         }
 
-        String output = RESOURCE_PATH + "/lb2/contours/contours.jpg";
+        String output = RESOURCE_PATH + "lb2/contours";
+
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+
+        output = output + "/contours.jpg";
         Imgcodecs.imwrite(output, dst);
     }
 }

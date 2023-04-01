@@ -1,6 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -19,7 +20,13 @@ public class FlipDemo {
         Mat dst = new Mat();
         flip(src, dst, 0);
 
-        String output = RESOURCE_PATH + "lb2/flip/flip.jpg";
+        String output = RESOURCE_PATH + "lb2/flip";
+
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+
+        output = output + "/flip.jpg";
         Imgcodecs.imwrite(output, dst);
     }
 }

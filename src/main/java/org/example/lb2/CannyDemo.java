@@ -1,6 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -24,8 +25,13 @@ public class CannyDemo {
         Mat edges = new Mat();
         Imgproc.Canny(gray, edges, trash, trash2);
 
+        String output = RESOURCE_PATH + "lb2/canny";
 
-        String output = RESOURCE_PATH + "lb2/canny/canny.jpg";
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+
+        output = output + "/canny.jpg";
         Imgcodecs.imwrite(output, edges);
     }
 

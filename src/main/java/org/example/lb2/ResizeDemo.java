@@ -1,6 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -20,7 +21,13 @@ public class ResizeDemo {
         Mat dst = new Mat();
         Imgproc.resize(src, dst, new Size(81,81));
 
-        String output = RESOURCE_PATH + "lb2/resize/resize.jpg";
+        String output = RESOURCE_PATH + "lb2/resize";
+
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+
+        output = output + "/resize.jpg";
         Imgcodecs.imwrite(output, dst);
     }
 }
