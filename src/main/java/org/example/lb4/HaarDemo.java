@@ -1,6 +1,7 @@
 package org.example.lb4;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -14,7 +15,7 @@ public class HaarDemo {
         run();
     }
     public static void run() {
-        Mat image = Imgcodecs.imread(GARMASH_PATH);
+        Mat image = Imgcodecs.imread(FACES_PATH);
         CascadeClassifier faceDetector = new CascadeClassifier(HAAS_CASCADE_PATH);
 
         MatOfRect faceDetections = new MatOfRect();
@@ -26,7 +27,12 @@ public class HaarDemo {
                     new Point(rect.x + rect.width, rect.y + rect.height),
                     new Scalar(0, 255, 0), 2);
         }
+        String output = RESOURCE_PATH + "lb4/haar";
 
-        Imgcodecs.imwrite(RESOURCE_PATH + "lb4/haar/haas.jpg", image);
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+        output = output + "/haar.jpg";
+        Imgcodecs.imwrite(output, image);
     }
 }
