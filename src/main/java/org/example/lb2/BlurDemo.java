@@ -1,7 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
-import org.DirectoryUtils;
+import org.example.utils.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;

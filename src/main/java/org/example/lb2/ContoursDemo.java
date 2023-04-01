@@ -1,7 +1,7 @@
 package org.example.lb2;
 
 import nu.pattern.OpenCV;
-import org.DirectoryUtils;
+import org.example.utils.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -10,7 +10,7 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.ColorUtils.generateColor;
+import static org.example.utils.ColorUtils.generateColor;
 import static org.example.LabConstants.CAT_PATH;
 import static org.example.LabConstants.RESOURCE_PATH;
 

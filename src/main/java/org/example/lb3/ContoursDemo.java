@@ -1,7 +1,7 @@
 package org.example.lb3;
 
 import nu.pattern.OpenCV;
-import org.DirectoryUtils;
+import org.example.utils.DirectoryUtils;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -9,8 +9,8 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.ColorUtils.generateColor;
 import static org.example.LabConstants.*;
+import static org.example.utils.ColorUtils.*;
 
 public class ContoursDemo {
 
@@ -33,19 +33,17 @@ public class ContoursDemo {
         Imgproc.findContours(thresh, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
 
         Mat dst = src.clone();
-        Scalar scalar = generateColor();
-        for (int i = 0; i < contours.size(); i++) {
-            Imgproc.drawContours(dst, contours, i, scalar, 2);
+              for (int i = 0; i < contours.size(); i++) {
+            Imgproc.drawContours(dst, contours, i, generateGreen(), 2);
         }
 
         Mat rects = dst.clone();
-        Scalar scalar2 = generateColor();
         for (MatOfPoint contour : contours) {
             Rect rect = Imgproc.boundingRect(contour);
             Imgproc.rectangle(rects,
                     new Point(rect.x, rect.y),
                     new Point(rect.x + rect.width, rect.y + rect.height),
-                    scalar2, 2);
+                    generateBlue(), 2);
         }
 
         String output = RESOURCE_PATH + "lb3/contours";

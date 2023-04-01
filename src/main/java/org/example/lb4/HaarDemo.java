@@ -1,7 +1,7 @@
 package org.example.lb4;
 
 import nu.pattern.OpenCV;
-import org.DirectoryUtils;
+import org.example.utils.DirectoryUtils;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;

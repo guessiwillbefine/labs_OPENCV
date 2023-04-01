@@ -1,4 +1,4 @@
-package org;
+package org.example.utils;
 
 import org.opencv.core.Scalar;
 
