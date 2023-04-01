@@ -17,10 +17,8 @@ public class CannyDemo {
     public static void run(int trash, int trash2) {
         Mat src = Imgcodecs.imread(CAT_PATH);
 
-
         Mat gray = new Mat();
         Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
-
 
         Mat edges = new Mat();
         Imgproc.Canny(gray, edges, trash, trash2);

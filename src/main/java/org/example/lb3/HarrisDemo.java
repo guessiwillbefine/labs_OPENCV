@@ -10,6 +10,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import static org.example.LabConstants.*;
+import static org.example.utils.ColorUtils.generateGreen;
 
 public class HarrisDemo {
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class HarrisDemo {
                 double[] value = corners.get(y, x);
                 if (value[0] > 0.01) {
                     Point point = new Point(x, y);
-                    Imgproc.circle(image, point, 5, new Scalar(0, 255, 0), 2);
+                    Imgproc.circle(image, point, 5, generateGreen(), 2);
                 }
             }
         }
