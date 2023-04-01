@@ -1,6 +1,7 @@
 package org.example.lb3;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
@@ -47,7 +48,12 @@ public class ContoursDemo {
                     scalar2, 2);
         }
 
-        String output = RESOURCE_PATH + "/lb3/contours/contours.jpg";
+        String output = RESOURCE_PATH + "lb3/contours";
+
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+        output = output + "/contours.jpg";
         Imgcodecs.imwrite(output, rects);
     }
 }

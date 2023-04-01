@@ -12,7 +12,7 @@ public final class DirectoryUtils {
     }
     public static File createDir(String dir) {
         File directory = new File(dir);
-        directory.mkdir();
+        directory.mkdirs();
         return directory;
     }
 }

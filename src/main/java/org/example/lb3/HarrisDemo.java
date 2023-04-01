@@ -1,6 +1,7 @@
 package org.example.lb3;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -41,7 +42,12 @@ public class HarrisDemo {
             }
         }
 
-        // Save result image
-        Imgcodecs.imwrite(RESOURCE_PATH + "lb3/harris/harris.png", image);
+        String output = RESOURCE_PATH + "lb3/harris";
+
+        if (!DirectoryUtils.isDirPresent(output)) {
+            DirectoryUtils.createDir(output);
+        }
+        output = output + "/harris.png";
+        Imgcodecs.imwrite(output, image);
     }
 }

@@ -1,6 +1,7 @@
 package org.example.lb3;
 
 import nu.pattern.OpenCV;
+import org.DirectoryUtils;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
@@ -35,7 +36,12 @@ public class CirclesDemo {
                 Imgproc.circle(image, center, radius, new Scalar(0, 0, 255), 2);
             }
 
-            // Save result image
-            Imgcodecs.imwrite(RESOURCE_PATH + "lb3/circles/circles.jpg", image);
+            String output = RESOURCE_PATH + "lb3/circles";
+
+            if (!DirectoryUtils.isDirPresent(output)) {
+                DirectoryUtils.createDir(output);
+            }
+            output = output + "/circles.jpg";
+            Imgcodecs.imwrite(output, image);
     }
 }
